@@ -1,0 +1,22 @@
+//TODO: add coins that you can spend at the store
+
+var scoreIndex = 0;
+
+onEvent("startButton", "click", function(){
+  setScreen("level1");
+  console.log("Search for Swiper and catch him by clicking him with your mouse!");
+});
+
+onEvent("swiper2","click", function(){
+  setScreen("level2");
+  console.log("Good Job! You got Swiper.");
+});
+
+onEvent("swiper2", "mouseover", function(){
+  setPosition("swiper2", randomNumber(0,235), randomNumber(135, 361));
+});
+
+onEvent("swiper3", "mouseover", function(){
+  setPosition("swiper3", randomNumber(0,241), randomNumber(85, 361));
+});
+
