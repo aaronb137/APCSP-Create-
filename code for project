@@ -1,15 +1,35 @@
-//TODO: add coins that you can spend at the store
+//this is the function fo the label timer
+var seconds = 15; 
 
-var scoreIndex = 0;
-
+function stopWatch(){
+  timedLoop(1000, function(){
+    seconds--;
+    console.log(seconds + " seconds left.");
+    if (seconds == 13){
+      hideElement("level1lbl");
+      setText("wordDisplay", "You have 13 seconds to catch Swiper. Hurry!");
+    } else if (seconds == 0){
+      stopTimedLoop();
+      setScreen("gameOver");
+      console.log("Swiper got away");
+      }
+  setText("secDisplay", seconds+1);
+    });
+  }
+  
+//event handler code 
 onEvent("startButton", "click", function(){
   setScreen("level1");
-  console.log("Search for Swiper and catch him by clicking him with your mouse!");
+  setText("wordDisplay", "Search for Swiper and catch him by clicking him with your mouse!");
+  stopWatch();
 });
 
 onEvent("swiper2","click", function(){
   setScreen("level2");
   console.log("Good Job! You got Swiper.");
+  stopTimedLoop();
+  seconds == 15;
+  console.log(seconds + 1);
 });
 
 onEvent("swiper2", "mouseover", function(){
